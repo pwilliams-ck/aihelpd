@@ -5,7 +5,7 @@ import { productsRouter } from "@/modules/products/server/procedures";
 
 export const appRouter = createTRPCRouter({
   auth: authRouter,
-  produts: productsRouter,
+  products: productsRouter,
   categories: categoriesRouter,
 });
 // export type definition of API
