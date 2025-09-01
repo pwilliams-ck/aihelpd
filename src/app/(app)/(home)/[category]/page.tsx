@@ -10,7 +10,7 @@ interface Props {
 const Page = async ({ params }: Props) => {
   const { category } = await params;
 
-  const products = await caller.produts.getMany();
+  const products = await caller.products.getMany();
 
   return (
     <div>
