@@ -1,6 +1,6 @@
-import { getPayload } from "payload";
-import config from "@payload-config";
-
+// import { getPayload } from "payload";
+// import config from "@payload-config";
+//
 // const categories = [
 //   {
 //     name: "All",
@@ -149,23 +149,31 @@ import config from "@payload-config";
 //   },
 // ];
 
+import { getPayload } from "payload";
+import config from "@payload-config";
+
 const categories = [
   {
     name: "All Services",
     slug: "all",
   },
   {
-    name: "Compute",
-    slug: "compute",
+    name: "Cloud Compute",
+    slug: "cloud-compute",
     color: "#7EC8E3",
     subcategories: [
       { name: "VM Instances", slug: "vm-instances" },
       { name: "Multi-VM Instances", slug: "multi-vm-instances" },
       { name: "Datacenter Instances", slug: "datacenter-instances" },
+      { name: "Cloud-to-Cloud Sync", slug: "cloud-to-cloud-sync" },
+      { name: "On-Premise to Cloud", slug: "on-premise-to-cloud" },
+      { name: "Monitoring & Alerts", slug: "monitoring-alerts" },
+      { name: "24/7 Support", slug: "24-7-support" },
+      { name: "Assisted Backup", slug: "assisted-backup" },
     ],
   },
   {
-    name: "Storage & Databases",
+    name: "Cloud Storage & Databases",
     slug: "storage-databases",
     color: "#FFB347",
     subcategories: [
@@ -174,20 +182,13 @@ const categories = [
       { name: "In-Memory Databases", slug: "in-memory-databases" },
       { name: "Backup Solutions", slug: "backup-solutions" },
       { name: "High-Performance Storage", slug: "high-performance-storage" },
-    ],
-  },
-  {
-    name: "Disaster Recovery & Replication",
-    slug: "disaster-recovery",
-    color: "#FF6B6B",
-    subcategories: [
       { name: "Zerto Replication", slug: "zerto-replication" },
       { name: "Zerto Backup", slug: "zerto-backup" },
       { name: "Multi-Site Replication", slug: "multi-site-replication" },
     ],
   },
   {
-    name: "Networking",
+    name: "Cloud Networking & Security",
     slug: "networking",
     color: "#96E6B3",
     subcategories: [
@@ -195,46 +196,194 @@ const categories = [
       { name: "DDoS Protection", slug: "ddos-protection" },
       { name: "Load Balancers", slug: "load-balancers" },
       { name: "VPN Services", slug: "vpn-services" },
-    ],
-  },
-  {
-    name: "Security & Compliance",
-    slug: "security-compliance",
-    color: "#FF9AA2",
-    subcategories: [
       { name: "Compliance Certifications", slug: "compliance-certifications" },
       { name: "Security & Monitoring", slug: "security-monitoring" },
       { name: "Encryption Services", slug: "encryption-services" },
     ],
   },
   {
-    name: "Managed Services",
-    slug: "managed-services",
-    color: "#D8B5FF",
-    subcategories: [
-      { name: "Monitoring & Alerts", slug: "monitoring-alerts" },
-      { name: "24/7 Support", slug: "24-7-support" },
-      { name: "Managed Backup", slug: "managed-backup" },
-    ],
-  },
-  {
-    name: "Hybrid Solutions",
-    slug: "hybrid-solutions",
-    color: "#FFE066",
-    subcategories: [
-      { name: "Cloud-to-Cloud Sync", slug: "cloud-to-cloud-sync" },
-      { name: "On-Premise to Cloud", slug: "on-premise-to-cloud" },
-    ],
-  },
-  {
-    name: "Infrastructure Services",
-    slug: "infrastructure-services",
+    name: "On-site Datacenter Services",
+    slug: "on-site-datacenter-services",
     color: "#AFE062",
     subcategories: [
       { name: "Dedicated Hardware", slug: "dedicated-hardware" },
       { name: "Colocation Racks", slug: "colocation-services" },
       { name: "Private Cages", slug: "private-cages" },
       { name: "On-Site Storage", slug: "on-site-storage" },
+    ],
+  },
+  {
+    name: "Automotive",
+    slug: "automotive",
+    color: "#FF9AA2",
+    subcategories: [
+      { name: "Mobile Mechanics", slug: "mobile-mechanics" },
+      { name: "Vehicle Dealerships", slug: "vehicle-delearships" },
+      { name: "Tire Shops", slug: "tire-shops" },
+      { name: "Quick Lube", slug: "quick-lube" },
+      { name: "Body Shop", slug: "body-shops" },
+      { name: "General Mechanics", slug: "general-mechanics" },
+    ],
+  },
+  {
+    name: "Commercial & Home Repair",
+    slug: "commercial-home-repair",
+    color: "#D8B5FF",
+    subcategories: [
+      { name: "Landscaping", slug: "landscaping" },
+      { name: "Electrical Services", slug: "electrical-services" },
+      { name: "Pest Control", slug: "pest-control" },
+      { name: "Foundation Repair", slug: "foundation-repair" },
+      { name: "Pool Service", slug: "pool-service" },
+      { name: "Roofing Companies", slug: "roofing-companies" },
+      { name: "Plumbing Services", slug: "plumbing-services" },
+      { name: "HVAC Companies", slug: "hvac-companies" },
+    ],
+  },
+  {
+    name: "Law Services",
+    slug: "law-services",
+    color: "#FFE066",
+    subcategories: [
+      { name: "Criminal Law", slug: "criminal-law" },
+      { name: "Family Law", slug: "family-law" },
+      { name: "Personal Injury Law", slug: "personal-injury-law" },
+      { name: "Immigration Law", slug: "immigration-law" },
+      { name: "Law Firms", slug: "law-firms" },
+    ],
+  },
+  {
+    name: "Medical Services",
+    slug: "medical-services",
+    color: "#B5B9FF",
+    subcategories: [
+      { name: "Orthodontics", slug: "orthodontics" },
+      { name: "Physical Therapy", slug: "physical-therapy" },
+      { name: "Primary Care", slug: "primary-care" },
+      { name: "IVF Clinics", slug: "ivf-clinics" },
+      { name: "Urgent Care", slug: "urgent-care" },
+      { name: "Chiropractors", slug: "chiropractors" },
+      { name: "Medical Spas", slug: "medical-spas" },
+      { name: "Dental Offices", slug: "dental-offices" },
+    ],
+  },
+  {
+    name: "Pet Services",
+    slug: "pet-services",
+    color: "#E6B3E6",
+    subcategories: [
+      { name: "Veterinarians", slug: "veterinarians" },
+      { name: "Dog Walkers", slug: "dog-walkers" },
+      { name: "Pet Daycare", slug: "pet-daycare" },
+      { name: "Pet Groomers", slug: "pet-groomers" },
+    ],
+  },
+  {
+    name: "Professional Services",
+    slug: "professional-services",
+    color: "#FFD93D",
+    subcategories: [
+      { name: "Accounting Firms", slug: "accounting-firms" },
+      { name: "Insurance Agencies", slug: "insurance-agencies" },
+      { name: "Real Estate Agencies", slug: "real-estate-agencies" },
+      { name: "Business Consulting", slug: "business-consulting" },
+      { name: "Marketing Agencies", slug: "marketing-agencies" },
+      { name: "SEO & Digital Marketing", slug: "seo-digital-marketing" },
+      { name: "Graphic Design Services", slug: "graphic-design-services" },
+      { name: "Web Development Agencies", slug: "web-development-agencies" },
+      { name: "IT Support Services", slug: "it-support-services" },
+      { name: "Bookkeeping Services", slug: "bookkeeping-services" },
+      { name: "Translation Services", slug: "translation-services" },
+      { name: "Content Writing", slug: "content-writing" },
+    ],
+  },
+  {
+    name: "Education & Training",
+    slug: "education-training",
+    color: "#6BCB77",
+    subcategories: [
+      { name: "Online Tutoring", slug: "online-tutoring" },
+      { name: "On-site Tutoring", slug: "on-site-tutoring" },
+      { name: "Professional Coaching", slug: "professional-coaching" },
+      { name: "Corporate Training", slug: "corporate-training" },
+      { name: "Certification Courses", slug: "certification-courses" },
+      { name: "Workshop Hosting", slug: "workshop-hosting" },
+      { name: "Language Instruction", slug: "language-instruction" },
+      { name: "Test Prep Services", slug: "test-prep-services" },
+      { name: "Music Lessons", slug: "music-lessons" },
+      { name: "Art Classes", slug: "art-classes" },
+      { name: "Coding Bootcamps", slug: "coding-bootcamps" },
+    ],
+  },
+  {
+    name: "Events & Entertainment",
+    slug: "events-entertainment",
+    color: "#FF6B9D",
+    subcategories: [
+      { name: "Event Planning Services", slug: "event-planning-services" },
+      { name: "DJ Services", slug: "dj-services" },
+      { name: "Photography Services", slug: "photography-services" },
+      { name: "Videography Services", slug: "videography-services" },
+      { name: "Wedding Services", slug: "wedding-services" },
+      { name: "Party Rentals", slug: "party-rentals" },
+      { name: "Conference Organizing", slug: "conference-organizing" },
+      { name: "Virtual Event Hosting", slug: "virtual-event-hosting" },
+      { name: "Catering Services", slug: "catering-services" },
+      { name: "Photo Booth Rentals", slug: "photo-booth-rentals" },
+      {
+        name: "Live Entertainment Booking",
+        slug: "live-entertainment-booking",
+      },
+    ],
+  },
+  {
+    name: "Financial Services",
+    slug: "financial-services",
+    color: "#95E1D3",
+    subcategories: [
+      { name: "Tax Preparation", slug: "tax-preparation" },
+      { name: "Financial Planning", slug: "financial-planning" },
+      { name: "Investment Advisory", slug: "investment-advisory" },
+      { name: "Mortgage Brokers", slug: "mortgage-brokers" },
+      { name: "Credit Repair Services", slug: "credit-repair-services" },
+      {
+        name: "Business Formation Services",
+        slug: "business-formation-services",
+      },
+      { name: "Payroll Services", slug: "payroll-services" },
+      { name: "Retirement Planning", slug: "retirement-planning" },
+      { name: "Estate Planning", slug: "estate-planning" },
+    ],
+  },
+  {
+    name: "Sports & Recreation",
+    slug: "sports-recreation",
+    color: "#F38181",
+    subcategories: [
+      { name: "Sports League Management", slug: "sports-league-management" },
+      { name: "Tournament Registration", slug: "tournament-registration" },
+      { name: "Sports Lessons", slug: "sports-facility-rentalsts-lessons" },
+      { name: "Tennis Coaching", slug: "tennis-coaching" },
+      { name: "Fitness Classes", slug: "fitness-classes" },
+      { name: "Sports Facility Rentals", slug: "sports-facility-rentals" },
+      { name: "Team Training Services", slug: "team-training-services" },
+      { name: "Personal Trainers", slug: "personal-trainers" },
+      { name: "Yoga Instructors", slug: "yoga-instructors" },
+      { name: "Referee Services", slug: "referee-services" },
+      { name: "Adventure Sports", slug: "adventure-sports" },
+      { name: "Swimming Lessons", slug: "swimming-lessons" },
+      { name: "Martial Arts Training", slug: "martial-arts-training" },
+    ],
+  },
+  {
+    name: "Digital Services",
+    slug: "digital-services",
+    color: "#AA96DA",
+    subcategories: [
+      { name: "AI & Machine Learning APIs", slug: "ai-machine-learning-apis" },
+      { name: "Software Licenses", slug: "software-licenses" },
+      { name: "Digital Games", slug: "digita-games" },
+      { name: "Physiical & Dital Music", slug: "physical-digital-music" },
     ],
   },
 ];

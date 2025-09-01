@@ -14,6 +14,14 @@ export const Products: CollectionConfig = {
     },
     {
       name: "price",
+      type: "number",
+      required: true,
+      admin: {
+        description: "Price in USD",
+      },
+    },
+    {
+      name: "Category",
       type: "relationship",
       relationTo: "categories",
       hasMany: false,
