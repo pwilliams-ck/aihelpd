@@ -7,7 +7,10 @@ import { LucideConstruction } from "lucide-react";
 import { AlertPopup } from "@/components/alert-popup";
 import { Footer } from "@/modules/home/ui/components/footer";
 import { Navbar } from "@/modules/home/ui/components/navbar";
-import { SearchFilters, SearchFiltersLoading } from "@/modules/home/ui/components/search-filters";
+import {
+  SearchFilters,
+  SearchFiltersLoading,
+} from "@/modules/home/ui/components/search-filters";
 
 interface Props {
   children: React.ReactNode;
@@ -29,7 +32,7 @@ const Layout = async ({ children }: Props) => {
         <div className="inset-0 flex items-center justify-center z-10">
           <AlertPopup
             title="Heads up!"
-            description="CloudKey Platform's new console is currently in beta and is actively being worked on, please come back soon!"
+            description="aihelpd's new console is currently in beta and is actively being worked on, please come back soon!"
             icon={<LucideConstruction className="h-6 w-6" />}
           />
         </div>
