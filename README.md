@@ -1,12 +1,14 @@
-# Nuffco
+# aihelpd
 
 A platform focused on event-driven commerce, specializing in tournaments and
 competitions for sports, card games, and other activities. While designed with
-competitive events in mind, Nuffco provides the flexibility to create and sell a
-wide variety of digital products and services.
+competitive events in mind, `aihelpd` provides the flexibility to create and
+sell a wide variety of digital products and services.
 
 ## Features
 
+- Cloud based services
+- Local businesses
 - Tournament organization and management
 - Digital product sales
 - Event ticketing
