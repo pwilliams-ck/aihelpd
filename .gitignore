@@ -1,10 +1,11 @@
 # Dependencies
 node_modules/
 
-# If standardizing on Bun, ignore other package manager lockfiles
+# If standardizing on pnpm, ignore other package manager lockfiles
 package-lock.json
 yarn.lock
-pnpm-lock.yaml
+bun.lock
+bun.lockb
 
 # Next.js build outputs
 .next/
