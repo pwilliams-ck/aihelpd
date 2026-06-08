@@ -16,6 +16,13 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - `pnpm db:fresh` - Fresh database migration (destructive)
 - `pnpm db:seed` - Seed database with demo data
 
+## Git
+
+This repo opts in to Claude Code pushing branches and opening pull requests:
+- Claude may `git push` a **feature branch** (never `main`) and open a PR with `gh pr create`.
+- Opening only — never merge, never push to `main`, never tag. Those stay human-only.
+- Still approval-gated: Claude shows the exact `git push` / `gh pr create` command and waits before running it.
+
 ## Project Architecture
 
 This is a Next.js 15 application with Payload CMS as a headless CMS, using the App Router and TypeScript.
