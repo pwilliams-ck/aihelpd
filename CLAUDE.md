@@ -5,16 +5,16 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ### Development
-- `bun i` - Install dependencies
-- `bun dev` - Start development server at localhost:3000
-- `bun run build` - Build for production
-- `bun start` - Start production server
-- `bun run lint` - Run ESLint
+- `pnpm i` - Install dependencies
+- `pnpm dev` - Start development server at localhost:3000
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm lint` - Run ESLint
 
 ### Payload CMS
-- `bun run generate:types` - Generate TypeScript types from Payload collections
-- `bun run db:fresh` - Fresh database migration (destructive)
-- `bun run db:seed` - Seed database with demo data
+- `pnpm generate:types` - Generate TypeScript types from Payload collections
+- `pnpm db:fresh` - Fresh database migration (destructive)
+- `pnpm db:seed` - Seed database with demo data
 
 ## Project Architecture
 
@@ -75,7 +75,7 @@ Required environment variables (see `.env.example`):
 
 ### Type Generation
 - Payload types are auto-generated to `src/payload-types.ts`
-- Run `bun run generate:types` after modifying collections
+- Run `pnpm generate:types` after modifying collections
 
 ### Styling Conventions
 - Uses Tailwind CSS with custom configuration
